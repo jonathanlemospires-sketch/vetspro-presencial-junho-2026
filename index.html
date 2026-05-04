@@ -15,6 +15,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2339b54a'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-family='Arial' font-weight='900' font-size='18' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+
+<!-- Meta Pixel — PageView dispara automaticamente; InitiateCheckout no submit do form (app.js) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'FB_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=FB_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+
+<script src="app.js" defer></script>
 </head>
 <body>
 
@@ -409,10 +419,29 @@
           <li>Certificado de conclusão</li>
         </ul>
       </div>
-      <a class="btn btn-primary btn-xl" href="https://vetspro.com.br/cursopresencialjunho26">
-        Garantir minha vaga — Lote 1
-      </a>
-      <p class="offer-foot">⚡ Poucas vagas disponíveis neste lote</p>
+      <form class="offer-form" id="enroll-form" novalidate>
+        <p class="offer-form-helper">Preencha abaixo. Após enviar, você fala direto com uma consultora para tirar todas as dúvidas sobre o programa.</p>
+        <div class="offer-form-fields">
+          <div class="offer-field">
+            <label for="f-nome">Nome completo</label>
+            <input id="f-nome" type="text" required name="nome" placeholder="Seu nome" autocomplete="name">
+          </div>
+          <div class="offer-field-phone">
+            <div>
+              <label for="f-ddd">DDD</label>
+              <input id="f-ddd" type="tel" required name="ddd" placeholder="11" maxlength="3" inputmode="numeric" pattern="[0-9]{2,3}">
+            </div>
+            <div>
+              <label for="f-whatsapp">WhatsApp</label>
+              <input id="f-whatsapp" type="tel" required name="whatsapp" placeholder="9 0000-0000" inputmode="numeric" autocomplete="tel-national">
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-xl" id="form-submit">
+          <span class="btn-label">Garantir minha vaga — Lote 1</span>
+        </button>
+      </form>
+      <p class="offer-foot">⚡ Poucas vagas disponíveis neste lote · Sem spam, seus dados estão seguros</p>
     </div>
   </div>
 </section>
@@ -461,7 +490,7 @@
       27 e 28 de junho, Campinas-SP. Lote 1 liberado.<br>
       <strong>10 vagas.</strong>
     </p>
-    <a class="btn btn-primary btn-xl" href="https://vetspro.com.br/cursopresencialjunho26">
+    <a class="btn btn-primary btn-xl" href="#oferta">
       Quero ser um dos 10 — garantir vaga agora
     </a>
     <p class="final-meta">🔴 Lote 1 liberado · 10 vagas · 27 e 28 de junho · Campinas-SP</p>
